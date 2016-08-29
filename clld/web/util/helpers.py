@@ -716,3 +716,15 @@ def get_resource_type(obj):
     """
     for interface in providedBy(obj):
         return interface.__name__[1:].lower()
+
+def ea(obj, attribute):
+    """Build infrastructure for an editable attribute.
+
+    Calls `getattr(obj, attribute)`, and builds some editing magic
+    around it.
+    """
+    return '''<span onclick="modify('{:}','{:s}','{:s}')">{:s}</span>'''.format(
+        type(obj).__name__,
+        obj.id,
+        attribute,
+        getattr(obj, attribute))

@@ -1,3 +1,14 @@
+<script>
+function cookie_for_add(thing){
+    document.cookie = thing.substring(0, thing.length-1)+'__ADD = {\
+    % for col in obj.cols:
+       "${col.name}":???,\
+    % endfor
+    }'.replace('\n','').replace(/"/g, '&quot').replace(/  */g, ' ').replace(', }','}');
+}
+</script>
+<input type="submit" value="Add" onclick="cookie_for_add('${obj}')">
+
 <table id="${obj.eid}" cellpadding="0" cellspacing="0" border="0" class="table table-bordered order-column compact stripe">
     <thead>
         <tr>

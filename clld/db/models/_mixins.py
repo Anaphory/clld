@@ -28,13 +28,13 @@ class IdNameDescriptionMixin(object):
         should be supplied, since these are used mutually exclusively.
     """
 
-    id = Column(String, unique=True)
+    id = Column(String, unique=True, nullable=False)
     """A ``str`` identifier of an object which can be used for sorting and as part of a
     URL path; thus should be limited to characters valid in URLs, and should not contain
     '.' or '/' since this may trip up route matching.
     """
 
-    name = Column(Unicode)
+    name = Column(Unicode, nullable=False)
     """A human readable 'identifier' of the object."""
 
     description = Column(Unicode)
